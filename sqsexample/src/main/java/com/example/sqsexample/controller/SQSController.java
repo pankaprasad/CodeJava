@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SQSController {
 
+    @Value("${cloud.aws.endpoint.uri}")
+    String queueUrl;
+
     @Autowired
     QueueMessagingTemplate queueMessagingTemplate;
 
-    @GetMapping("/sendMsg")
+    @GetMapping("/sendMsg/{message}")
     public void sndMsg() {
         //sqsConfig.sendMsg();
-        queueMessagingTemplate.send( "https://sqs.eu-north-1.amazonaws.com/018503853785/SQSexample",MessageBuilder.withPayload("\"This is testing from Spring Boot Application\"").build());
+        queueMessagingTemplate.send( queueUrl,MessageBuilder.withPayload(message).build());
     }
 }

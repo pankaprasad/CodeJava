@@ -7,6 +7,3 @@ cloud :
      secret-key : 5vYwNqb0Zvn/tz03NZIsOMEQbdy49HtRM+0JG22J
    end-point :
      uri : https://sqs.eu-north-1.amazonaws.com/018503853785/SQSexample
-
-aws:
-  region: eu-north-1

@@ -25,10 +25,6 @@ public class SQSConfig {
     @Value("${cloud.aws.credentials.secret-key}")
     String awsSecretKey;
 
-
-    @Value("${cloud.aws.endpoint.uri}")
-    String queueUrl;
-
     @Primary
     @Bean
     public AmazonSQSAsync amazonSQSAsync() {
